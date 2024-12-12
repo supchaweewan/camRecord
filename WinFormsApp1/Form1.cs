@@ -37,13 +37,14 @@ namespace WinFormsApp1
             
             try
             {
+                toolStripStatusCamera.Text = "Waiting";
                 if (buttonConnect.Text == "Connect")
                 {
                     _capture = new VideoCapture();
                     _capture.ImageGrabbed += ProcessFrame;
 
                     _frame = new Mat();
-                    toolStripStatusCamera.Text = "Camera on!";
+                    toolStripStatusCamera.Text = "Connected!";
                     buttonConnect.Text = "Disconnect";
                     buttonConnect.Enabled = true;
 
@@ -60,7 +61,7 @@ namespace WinFormsApp1
                     {
                         _frame.Dispose();
                     }
-                    toolStripStatusCamera.Text = "Camera Disconnected!";
+                    toolStripStatusCamera.Text = "Disconnected";
                     buttonConnect.Text = "Connect";
                     buttonConnect.Enabled = false;
                 }
