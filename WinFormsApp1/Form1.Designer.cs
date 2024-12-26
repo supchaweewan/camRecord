@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             buttonConnect = new Button();
             buttonStart = new Button();
             buttonFlipHor = new Button();
             buttonFlipVer = new Button();
-            imageBoxLife = new Emgu.CV.UI.ImageBox();
             groupBox1 = new GroupBox();
             statusStripInfo = new StatusStrip();
             toolStripStatusDate = new ToolStripStatusLabel();
@@ -45,9 +42,13 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             textTestPanel = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)imageBoxLife).BeginInit();
+            imageBoxLife = new PictureBox();
+            imageBoxFace = new PictureBox();
+            groupBox1.SuspendLayout();
             statusStripInfo.SuspendLayout();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imageBoxLife).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imageBoxFace).BeginInit();
             SuspendLayout();
             // 
             // buttonConnect
@@ -86,18 +87,10 @@
             buttonFlipVer.Text = "Vertical Flip";
             buttonFlipVer.UseVisualStyleBackColor = true;
             // 
-            // imageBoxLife
-            // 
-            imageBoxLife.InitialImage = (Image)resources.GetObject("imageBoxLife.InitialImage");
-            imageBoxLife.Location = new Point(128, 91);
-            imageBoxLife.Name = "imageBoxLife";
-            imageBoxLife.Size = new Size(483, 234);
-            imageBoxLife.TabIndex = 2;
-            imageBoxLife.TabStop = false;
-            // 
             // groupBox1
             // 
-            groupBox1.Location = new Point(128, 66);
+            groupBox1.Controls.Add(imageBoxLife);
+            groupBox1.Location = new Point(38, 66);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(483, 259);
             groupBox1.TabIndex = 7;
@@ -169,15 +162,31 @@
             textTestPanel.Size = new Size(125, 27);
             textTestPanel.TabIndex = 10;
             // 
+            // imageBoxLife
+            // 
+            imageBoxLife.Location = new Point(0, 26);
+            imageBoxLife.Name = "imageBoxLife";
+            imageBoxLife.Size = new Size(483, 233);
+            imageBoxLife.TabIndex = 11;
+            imageBoxLife.TabStop = false;
+            // 
+            // imageBoxFace
+            // 
+            imageBoxFace.Location = new Point(604, 156);
+            imageBoxFace.Name = "imageBoxFace";
+            imageBoxFace.Size = new Size(125, 125);
+            imageBoxFace.TabIndex = 11;
+            imageBoxFace.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(795, 569);
+            Controls.Add(imageBoxFace);
             Controls.Add(textTestPanel);
             Controls.Add(statusStripInfo);
             Controls.Add(menuStrip1);
-            Controls.Add(imageBoxLife);
             Controls.Add(buttonFlipVer);
             Controls.Add(buttonFlipHor);
             Controls.Add(buttonStart);
@@ -186,12 +195,13 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)imageBoxLife).EndInit();
+            groupBox1.ResumeLayout(false);
             statusStripInfo.ResumeLayout(false);
             statusStripInfo.PerformLayout();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imageBoxLife).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imageBoxFace).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -202,7 +212,6 @@
         private Button buttonStart;
         private Button buttonFlipHor;
         private Button buttonFlipVer;
-        private Emgu.CV.UI.ImageBox imageBoxLife;
         private GroupBox groupBox1;
         private StatusStrip statusStripInfo;
         private ToolStripStatusLabel toolStripStatusCamera;
@@ -213,5 +222,7 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private TextBox textTestPanel;
         private ToolStripStatusLabel camRec;
+        private PictureBox imageBoxLife;
+        private PictureBox imageBoxFace;
     }
 }
